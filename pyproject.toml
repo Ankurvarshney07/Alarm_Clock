@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alarm-clock-cli"
+version = "1.0.0"
+description = "A developer-friendly terminal alarm clock"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies = [
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+audio = ["pygame>=2.5"]
+
+[project.scripts]
+alarm = "alarm_clock.__main__:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["alarm_clock*"]
+
+[tool.setuptools.package-data]
+"alarm_clock" = []
